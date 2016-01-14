@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9cc90bb5-a038-4217-a512-19638d755c5e" name="Default" comment="Small changes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/VehicleEnquiryApi.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/VehicleEnquiryApplication.java" afterPath="$PROJECT_DIR$/src/main/java/VehicleEnquiryApplication.java" />
     </list>
     <ignored path="VehicleEnquiry.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -650,7 +648,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452786713531</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Small changes">
+      <created>1452787040408</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1452787040408</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
