@@ -1,7 +1,7 @@
-# VehicleEnquiry
+# VehicleEnquiryAPI
 A Vehicle Enquiry API.
 
-# Heading
+# Heading 1
 ...
 code();
 ...
