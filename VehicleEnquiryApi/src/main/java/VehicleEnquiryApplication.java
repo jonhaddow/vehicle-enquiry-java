@@ -4,8 +4,6 @@ import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
-import java.util.logging.Level;
-
 /**
  * Created by Jon Haddow on 14/01/2016.
  */
@@ -31,6 +29,5 @@ public class VehicleEnquiryApplication extends Application<VehicleEnquiryConfig>
         environment.jersey().register(resource);
 
     }
-
 
 }
