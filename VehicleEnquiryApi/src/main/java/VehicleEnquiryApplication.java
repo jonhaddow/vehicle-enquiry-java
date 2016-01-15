@@ -10,9 +10,7 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 public class VehicleEnquiryApplication extends Application<VehicleEnquiryConfig> {
 
     public static void main(String[] args) throws Exception {
-
         new VehicleEnquiryApplication().run(args);
-
     }
 
     @Override
@@ -27,7 +25,5 @@ public class VehicleEnquiryApplication extends Application<VehicleEnquiryConfig>
 
         // REGISTER RESOURCES
         environment.jersey().register(resource);
-
     }
-
 }

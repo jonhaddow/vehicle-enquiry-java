@@ -23,10 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="VehicleEnquiry" />
+        <module name="VehicleEnquiryApi" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="VehicleEnquiry" target="1.5" />
+      <module name="VehicleEnquiryApi" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
