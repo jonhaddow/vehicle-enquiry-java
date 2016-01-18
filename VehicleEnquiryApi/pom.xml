@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.vehicleenquiry</groupId>
+    <groupId>com</groupId>
     <artifactId>VehicleEnquiry</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -26,7 +26,7 @@
         <dependency>
             <groupId>io.dropwizard</groupId>
             <artifactId>dropwizard-testing</artifactId>
-            <version>0.8.1</version>
+            <version>${dropwizard.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -37,30 +37,6 @@
 
     <build>
         <plugins>
-
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>0.3.8</version>
-                <configuration>
-                    <imageName>vehicleenquiryexample</imageName>
-                    <dockerDirectory>${project.basedir}/docker</dockerDirectory>
-                    <!-- copy the service's jar and yml files from target into the root directory of the image -->
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.basedir}</directory>
-                            <include>${project.artifactId}.yml</include>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
