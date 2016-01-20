@@ -37,3 +37,16 @@ This can be done by:
 - and adding the required port mapping (8050:8050)
 
 You may also need to change the rules of the security group the EC2 instance is using to allow 8050 inbound calls.
+
+## How to use the API
+
+The Api can be queried by entering:
+
+http://54.213.90.11:8050/vehicles?vrm=VEHICLE_REG&make=VEHICLE_MAKE
+
+*VEHICLE_REG is the Vehicle registration number parameter.*
+
+
+*VEHICLE_MAKE is the parameter containing the make of the vehicle.*
+
+The IP address (54.213.90.11) is the address of the EC2 instance holding the Docker container.
