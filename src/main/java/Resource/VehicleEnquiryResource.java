@@ -34,7 +34,6 @@ public class VehicleEnquiryResource {
         this.htmlUnitDriver = htmlUnitDriver;
     }
 
-
     @GET
     @Timed
     @ExceptionMetered
@@ -162,10 +161,12 @@ public class VehicleEnquiryResource {
             }
 
         } catch (Exception e) {
-            Response response = Response.status(Response.Status.NOT_FOUND).build();
+            vehicleRecord.setVehicleExists(false);
+            Response response = Response.ok("The vehicle does not exist").build();
             return response;
         }
 
+        vehicleRecord.setVehicleExists(true);
         Response response = Response.ok(vehicleRecord).build();
 
         return response;
