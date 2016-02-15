@@ -2,10 +2,9 @@ swagger: '2.0'
 info:
   title: Vehicle Enquiry API
   version: 1.0.0
-host: jon.com
+host: localhost:8050
 schemes:
   - http
-basePath: /v1
 produces:
   - application/json
 paths:
@@ -15,7 +14,7 @@ paths:
       description: |    
         Given a vehicle registration number and vehicle make, this returns tax and MOT information.
       parameters:
-        - name: vrn
+        - name: vrm
           in: query
           description: Vehicle registration number
           required: true
@@ -27,76 +26,67 @@ paths:
           type: string
       responses:
         '200':
-          description: Taxation and MOT information.
+          description: Successful response
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/vehicle'
+            type: object
+            properties:
+              regMark:
+                type: string
+                description: the given vehicle registration number
+              make:
+                type: string
+                description: the make of the vehicle
+              validTax:
+                type: boolean
+                description: is the tax valid
+              dateOfLiability:
+                type: string
+                description: date of liability
+              validMot:
+                type: boolean
+                description: is mot valid
+              motExpiryDt:
+                type: string
+                description: expiry date of mot
+              firstRegDt:
+                type: string
+                description: date of first registration
+              manufactureYr:
+                type: string
+                description: year the vehicle is manufactured
+              cylinderCapacity:
+                type: integer
+                description: capacity of cylinder
+              co2Emissions:
+                type: integer
+                description: co2 emissions from vehicle
+              fuelType:
+                type: string
+                description: the type of fuel the vehicle produces
+              status:
+                type: string
+                description: taxation status
+              colour:
+                type: string
+                description: colour of vehicle
+              typeApproval:
+                type: string
+                description: type approval
+              wheelplan:
+                type: string
+                description: wheel plan
+              revenueWeight:
+                type: string
+                description: revenue weight
         default:
           description: Unexpected error
           schema:
-            $ref: '#/definitions/Error'
-  
-definitions:
-  vehicle:
-    type: object
-    properties:
-      vrn:
-        type: string
-        description: the given vehicle registration number
-      make:
-        type: string
-        description: the make of the vehicle
-      validTax:
-        type: boolean
-        description: is the tax valid
-      dateOfLiability:
-        type: string
-        description: date of liability
-      validMot:
-        type: boolean
-        description: is mot valid
-      motExpiryDt:
-        type: string
-        description: expiry date of mot
-      firstRegDt:
-        type: string
-        description: date of first registration
-      manufactureYr:
-        type: string
-        description: year the vehicle is manufactured
-      cylinderCapacity:
-        type: integer
-        description: capacity of cylinder
-      co2Emissions:
-        type: integer
-        description: co2 emissions from vehicle
-      fuelType:
-        type: string
-        description: the type of fuel the vehicle produces
-      status:
-        type: string
-        description: taxation status
-      colour:
-        type: string
-        description: colour of vehicle
-      typeApproval:
-        type: string
-        description: type approval
-      wheelplan:
-        type: string
-        description: wheel plan
-      revenueWeight:
-        type: string
-        description: revenue weight
-      
-  Error:
-    type: object
-    properties:
-      code:
-        type: integer
-        format: int32
-      message:
-        type: string
-      fields:
-        type: string
+            type: object
+            properties:
+              code:
+                type: integer
+                format: int32
+              message:
+                type: string
+              fields:
+                type: string
