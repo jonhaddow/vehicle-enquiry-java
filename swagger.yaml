@@ -2,7 +2,7 @@ swagger: '2.0'
 info:
   title: Vehicle Enquiry API
   version: 1.0.0
-host: localhost:8050
+host: 54.191.244.98:8050
 schemes:
   - http
 produces:
@@ -30,6 +30,9 @@ paths:
           schema:
             type: object
             properties:
+              vehicleExists:
+                type: boolean
+                description: true if vehicle exists in database
               regMark:
                 type: string
                 description: the given vehicle registration number
