@@ -42,10 +42,9 @@ You may also need to change the rules of the security group the EC2 instance is 
 
 The Api can be queried by entering:
 
-http://PUBLICIP:8050/vehicles?vrm=VEHICLE_REG&make=VEHICLE_MAKE
+http://PUBLICIP:8050/vehicles?vrn=VEHICLE_REG&make=VEHICLE_MAKE
 
 *VEHICLE_REG is the Vehicle registration number parameter.*
-
 
 *VEHICLE_MAKE is the parameter containing the make of the vehicle.*
 

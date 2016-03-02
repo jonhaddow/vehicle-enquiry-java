@@ -2,15 +2,14 @@ package Record;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.sql.Date;
+
 /**
  * Created by Jon Haddow on 14/01/2016.
  */
 public class VehicleRecord {
 
     public VehicleRecord() {}
-
-    @JsonProperty
-    private Boolean vehicleExists;
 
     @JsonProperty
     private String regMark;
@@ -22,19 +21,19 @@ public class VehicleRecord {
     private boolean validTax;
 
     @JsonProperty
-    private String dateOfLiability;
+    private Date dateOfLiability;
 
     @JsonProperty
     private boolean validMot;
 
     @JsonProperty
-    private String motExpiryDt;
+    private Date motExpiryDt;
 
     @JsonProperty
-    private String firstRegDt;
+    private Date firstRegDt;
 
     @JsonProperty
-    private String manufactureYr;
+    private int manufactureYr;
 
     @JsonProperty
     private int cylinderCapacity;
@@ -60,10 +59,6 @@ public class VehicleRecord {
     @JsonProperty
     private String revenueWeight;
 
-    public void setVehicleExists(Boolean vehicleExists) {
-        this.vehicleExists = vehicleExists;
-    }
-
     public void setRegMark(String regMark) {
         this.regMark = regMark;
     }
@@ -76,7 +71,7 @@ public class VehicleRecord {
         this.validTax = isValidTax;
     }
 
-    public void setDateOfLiability(String dateOfLiability) {
+    public void setDateOfLiability(Date dateOfLiability) {
         this.dateOfLiability = dateOfLiability;
     }
 
@@ -84,15 +79,15 @@ public class VehicleRecord {
         this.validMot = isValidMot;
     }
 
-    public void setMotExpiryDt(String motExpiryDt) {
+    public void setMotExpiryDt(Date motExpiryDt) {
         this.motExpiryDt = motExpiryDt;
     }
 
-    public void setFirstRegDt(String firstRegDt) {
+    public void setFirstRegDt(Date firstRegDt) {
         this.firstRegDt = firstRegDt;
     }
 
-    public void setManufactureYr(String manufactureYr) {
+    public void setManufactureYr(int manufactureYr) {
         this.manufactureYr = manufactureYr;
     }
 

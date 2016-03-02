@@ -14,7 +14,7 @@ paths:
       description: |    
         Given a vehicle registration number and vehicle make, this returns tax and MOT information.
       parameters:
-        - name: vrm
+        - name: vrn
           in: query
           description: Vehicle registration number
           required: true

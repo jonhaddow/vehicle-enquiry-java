@@ -25,7 +25,7 @@ public class VehicleEnquiryApplication extends Application<VehicleEnquiryConfig>
 
         final HtmlUnitDriver htmlUnitDriver = new HtmlUnitDriver(false);
 
-        VehicleEnquiryResource resource = new VehicleEnquiryResource(htmlUnitDriver);
+        VehicleEnquiryResource resource = new VehicleEnquiryResource();
 
         // REGISTER HEALTH CHECKS
         environment.healthChecks().register("vehicleenquiry",new VehicleEnquiryHealthCheck());
