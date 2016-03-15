@@ -22,33 +22,55 @@ import java.sql.SQLException;
 @Produces(MediaType.APPLICATION_JSON)
 public class VehicleEnquiryResource {
 
+    //Constants to connect to postgres database
     public static final String HOST = "jdbc:postgresql://localhost:5432/";
     public static final String DB_NAME = "VehicleEnquiry";
     public static final String USERNAME = "postgres";
     public static final String PASSWORD = "password";
 
-    public VehicleEnquiryResource() {
-    }
-
+    /**
+     * This GET Request takes a vehicle reg number and make
+     * and returns vehicle information stored by DVLA.
+     * @param vrn Vehicle Registration number
+     * @param make Make of vehicle
+     * @return HTTP Response. Ok if get request is successful.
+     */
     @GET
     @Timed
     @ExceptionMetered
     public Response getVehicle(@NotNull @QueryParam("vrn") String vrn,
                                @NotNull @QueryParam("make") String make) {
 
+        //Connect to postgres database
         Postgres postgres = new Postgres(
                 HOST,
                 DB_NAME,
                 USERNAME,
                 PASSWORD);
+
+        // Set of data from vehicle database entry when query has been executed
         ResultSet rs;
+
+        // Create vehicle record class to hold vehicle data
         VehicleRecord record = new VehicleRecord();
+
         try {
             if (postgres.connect()) {
-                System.out.println("\nDatabase Connected\n");
-                rs = postgres.execQuery("SELECT * FROM vehicles WHERE vrn = '"
-                        + vrn + "'");
-                while (rs.next()) {
+
+                // Execute SQL Query against postgres database
+                rs = postgres.execQuery("SELECT * FROM vehicles WHERE vrn = '" + vrn + "'");
+
+                // If there is a row from vehicles returned
+                if (rs.next()) {
+
+                    // If the vehicle make entered, doesn't belong to the vrn...
+                    if (!rs.getString(2).equals(make)) {
+
+                        // ...return an unauthorised access response
+                        return Response.status(Response.Status.UNAUTHORIZED).build();
+                    }
+
+                    // Transfer data from query result to vehicle record
                     record.setRegMark(rs.getString(1));
                     record.setMake(rs.getString(2));
                     record.setIsValidTax(rs.getBoolean(3));
@@ -65,15 +87,17 @@ public class VehicleEnquiryResource {
                     record.setTypeApproval(rs.getString(14));
                     record.setWheelplan(rs.getString(15));
                     record.setRevenueWeight(rs.getString(16));
+                } else {
+
+                    // Respond with a NOT FOUND status
+                    return Response.status(Response.Status.NOT_FOUND).build();
                 }
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
-        Response response = Response.ok(record).build();
-
-        return response;
+        // Respond with vehicle record json
+        return Response.ok(record).build();
     }
-
 }

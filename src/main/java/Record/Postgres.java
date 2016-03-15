@@ -52,36 +52,4 @@ public class Postgres {
     public ResultSet execQuery(String query) throws SQLException {
         return this.conn.createStatement().executeQuery(query);
     }
-
-    /**
-     * Inserts a new row into a table
-     * @param table
-     * @param values
-     * @return
-     * @throws SQLException
-     */
-    public int insert(String table, Map values) throws SQLException {
-
-        StringBuilder columns = new StringBuilder();
-        StringBuilder vals = new StringBuilder();
-
-        for (Object colu : values.keySet()) {
-            String col = (String) colu;
-            columns.append(col).append(",");
-
-            if (values.get(col) instanceof String) {
-                vals.append("'").append(values.get(col)).append("', ");
-            }
-            else vals.append(values.get(col)).append(",");
-        }
-
-        //delete the final comma
-        columns.setLength(columns.length()-1);
-        vals.setLength(vals.length()-1);
-
-        String query = String.format("INSERT INTO %s (%s) VALUES (%s)", table,
-                columns.toString(), vals.toString());
-
-        return this.conn.createStatement().executeUpdate(query);
-    }
 }

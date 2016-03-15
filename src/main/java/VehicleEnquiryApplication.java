@@ -32,6 +32,7 @@ public class VehicleEnquiryApplication extends Application<VehicleEnquiryConfig>
 
         // REGISTER RESOURCES
         environment.jersey().register(resource);
+
     }
 
     //This method allows cross origin resource sharing from Javascript sites.
