@@ -23,18 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="VehicleEnquiry" />
-      </profile>
-      <profile default="false" name="Annotation profile for VehicleEnquiryApi" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
         <module name="VehicleEnquiryApi" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="VehicleEnquiry" target="1.5" />
-      <module name="VehicleEnquiryApi" target="1.7" />
+      <module name="VehicleEnquiryApi" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -25,14 +25,13 @@ public class VehicleEnquiryApplication extends Application<VehicleEnquiryConfig>
 
         final HtmlUnitDriver htmlUnitDriver = new HtmlUnitDriver(false);
 
-        VehicleEnquiryResource resource = new VehicleEnquiryResource();
+        VehicleEnquiryResource resource = new VehicleEnquiryResource(htmlUnitDriver);
 
         // REGISTER HEALTH CHECKS
         environment.healthChecks().register("vehicleenquiry",new VehicleEnquiryHealthCheck());
 
         // REGISTER RESOURCES
         environment.jersey().register(resource);
-
     }
 
     //This method allows cross origin resource sharing from Javascript sites.
