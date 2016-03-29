@@ -23,8 +23,6 @@ public class VehicleEnquiryApplication extends Application<VehicleEnquiryConfig>
 
         setupCORS(environment);
 
-        final HtmlUnitDriver htmlUnitDriver = new HtmlUnitDriver(false);
-
         VehicleEnquiryResource resource = new VehicleEnquiryResource();
 
         // REGISTER HEALTH CHECKS
