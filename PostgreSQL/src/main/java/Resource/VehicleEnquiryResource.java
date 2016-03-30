@@ -23,10 +23,11 @@ import java.sql.SQLException;
 public class VehicleEnquiryResource {
 
     //Constants to connect to postgres database
-    public static final String HOST = "jdbc:postgresql://localhost:5432/";
-    public static final String DB_NAME = "VehicleEnquiry";
-    public static final String USERNAME = "postgres";
-    public static final String PASSWORD = "password";
+    private static final String HOST =
+            "jdbc:postgresql://horton.elephantsql.com:5432/";
+    private static final String DB_NAME = "mbdgctad";
+    private static final String USERNAME = "mbdgctad";
+    private static final String PASSWORD = "Bh_VwvzWPSQlFUDEwLQ6xbksrxGbt6rg";
 
     /**
      * This GET Request takes a vehicle reg number and make
