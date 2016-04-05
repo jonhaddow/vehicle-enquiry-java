@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
 
 /**
  * Created by Jon Haddow on 02/03/2016.
@@ -27,24 +26,26 @@ public class Postgres {
 
     /**
      * Establishes the connection
+     *
      * @return true if connection is made
      * @throws SQLException
      * @throws ClassNotFoundException
      */
     public boolean connect() throws SQLException, ClassNotFoundException {
         if (host.isEmpty() || dbName.isEmpty() || user.isEmpty() || pass.isEmpty()) {
-            throw  new SQLException("Database credentials missing");
+            throw new SQLException("Database credentials missing");
         }
 
         Class.forName("org.postgresql.Driver");
         this.conn = DriverManager.getConnection(
-                this.host +this.dbName,
-                this.user,this.pass);
+                this.host + this.dbName,
+                this.user, this.pass);
         return true;
     }
 
     /**
      * Execute the sql query
+     *
      * @param query
      * @return
      * @throws SQLException

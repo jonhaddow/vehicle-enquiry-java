@@ -24,10 +24,10 @@ public class VehicleEnquiryResource {
 
     //Constants to connect to postgres database
     private static final String HOST =
-            "jdbc:postgresql://horton.elephantsql.com:5432/";
-    private static final String DB_NAME = "mbdgctad";
-    private static final String USERNAME = "mbdgctad";
-    private static final String PASSWORD = "Bh_VwvzWPSQlFUDEwLQ6xbksrxGbt6rg";
+            "jdbc:postgresql://mypostgresdb.czxgvayxbptm.eu-west-1.rds.amazonaws.com:5432/";
+    private static final String DB_NAME = "VehicleEnquiry";
+    private static final String USERNAME = "username";
+    private static final String PASSWORD = "password";
 
     /**
      * This GET Request takes a vehicle reg number and make
