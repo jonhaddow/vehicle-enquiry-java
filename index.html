@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Vehicleenquiryapi by jonhaddow</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Vehicleenquiryapi</h1>
+        <p>A Vehicle Enquiry API.</p>
+
+        <p class="view"><a href="https://github.com/jonhaddow/VehicleEnquiryApi">View the Project on GitHub <small>jonhaddow/VehicleEnquiryApi</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jonhaddow/VehicleEnquiryApi/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jonhaddow/VehicleEnquiryApi/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jonhaddow/VehicleEnquiryApi">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="vehicle-enquiry-api" class="anchor" href="#vehicle-enquiry-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Vehicle Enquiry API</h1>
+
+<p>This is a project experimenting different technologies and services available to create an Vehicle Enquiry API. I'm using the <a href="http://www.dropwizard.io/0.9.2/docs/">Dropwizard</a> framework on Java. </p>
+
+<p>The API is exposed on port 8050 and accessed by this URL:</p>
+
+<p>http://HOST:8050/vehicles?vrn=VEHICLE_REG&amp;make=VEHICLE_MAKE</p>
+
+<p>Two parameters are passed in to the URL: </p>
+
+<ul>
+<li>The vehicle registration number</li>
+<li>The vehicle make</li>
+</ul>
+
+<h2>
+<a id="hosting-on-aws" class="anchor" href="#hosting-on-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hosting on AWS</h2>
+
+<h3>
+<a id="creating-a-docker-image" class="anchor" href="#creating-a-docker-image" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating a Docker image</h3>
+
+<p>A Docker image was created to hold the Jar file and it's configuration files. 
+I have uploaded this to my <a href="https://hub.docker.com/">Docker Hub</a> repo.</p>
+
+<p>To create a Docker image of the API (on <em>Windows 10</em>) you:</p>
+
+<ul>
+<li>Install <a href="https://www.docker.com/docker-toolbox">Docker Toolbox</a>
+</li>
+<li>Copy the executional .jar file, the .yml file and the Dockerfile into the Docker folder.</li>
+<li>Open <em>Docker Quickstart Terminal</em>
+</li>
+<li>Navigate to the docker folder</li>
+<li>Type <code>docker build .</code>
+</li>
+<li>Type <code>docker images</code> to find the image you just created. Copy the imageID.</li>
+<li>Type <code>docker tag imageID DockerhubUsername/ImageName</code>
+</li>
+<li>Type <code>docker login https://index.docker.io/v1/</code> and login with your credentials.</li>
+<li>type <code>docker push DockerhubUsername/ImageName</code>
+</li>
+</ul>
+
+<p>Your API is now in your Docker hub repo.</p>
+
+<h3>
+<a id="using-amazons-ecs" class="anchor" href="#using-amazons-ecs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using Amazon's ECS</h3>
+
+<p><em>This is not included in free tier.</em></p>
+
+<p>Amazon ECS uses Docker images in task definitions to launch containers on EC2 instances. </p>
+
+<p>This can be done by:</p>
+
+<ul>
+<li>creating a task definition</li>
+<li>specifying a container name</li>
+<li>referencing the created image URL in the Docker Hub repo</li>
+<li>and adding the required port mapping (8050:8050)</li>
+</ul>
+
+<p>You may also need to change the rules of the security group the EC2 instance is using to allow 8050 inbound calls.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jonhaddow">jonhaddow</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
